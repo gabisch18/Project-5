@@ -1,0 +1,14 @@
+#main-play-area {
+/*    background-color: aquamarine;*/
+    background-image: url('images/parkBg.png');
+    background-size: contain;
+    width: 889px;
+    height: 500px;
+}
+#player {
+    width: 60px;
+/*    height: 20px;*/
+    position: relative;
+    left: 400px;
+    top: 420px;
+}
