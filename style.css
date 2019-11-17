@@ -1,14 +1,32 @@
 #main-play-area {
 /*    background-color: aquamarine;*/
     background-image: url('images/parkBg.png');
+/*
+    background-repeat: no-repeat;
+    background-size: cover;
+*/
     background-size: contain;
     width: 889px;
     height: 500px;
 }
 #player {
-    width: 60px;
+    width: 80px;
 /*    height: 20px;*/
     position: relative;
-    left: 400px;
-    top: 420px;
+    left: 370px;
+    top: 400px;
+}
+
+.bone {
+/*  width: 30px;*/
+  height: 35px;
+  position: absolute;
+/*
+  border-radius: 50%;
+  background-color: #fff;
+  box-shadow:
+       0 0 6px 3px #fff,
+       0 0 5px 6px #f0f,
+       0 0 9px 9px #0ff;
+*/
 }
