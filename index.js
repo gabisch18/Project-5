@@ -1,6 +1,7 @@
 const mainPlayArea = document.getElementById("main-play-area")
 const doggo = document.getElementById("player")
 const bones = ['images/bone.png', 'images/bone2.png', 'images/bone3.png']
+const scoreCounter = document.querySelector('#score span')
 
 let boneInterval
 playGame()
@@ -48,7 +49,7 @@ function createBone() {
   newBone.src = boneSpriteImg
   newBone.classList.add('bone')
   newBone.style.top = '5px'
-  newBone.style.left = `${Math.floor(Math.random() * 889) + 30}px`
+  newBone.style.left = `${Math.floor(Math.random() * 889)}px`
   mainPlayArea.appendChild(newBone)
   moveBone(newBone)
 }
@@ -61,7 +62,7 @@ function moveBone(bone) {
         bone.remove()
     } else {
         bone.style.top = `${yPosition + 4}px`
-    }
+    }//check collision in here
   }, 30)
 }
 
