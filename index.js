@@ -61,9 +61,9 @@ function moveBone(bone) {
   let moveBoneInterval = setInterval(() => {
     let yPosition = parseInt(window.getComputedStyle(bone).getPropertyValue('top'))
     if (checkCollision(bone, doggo)) {
-        console.log("true collision");
-        bone.remove();
         scoreCounter.innerText = parseInt(scoreCounter.innerText) + 1;
+        bone.style.top = `${800}px`
+        bone.remove();
     }
     if (yPosition >= 450) {
         bone.remove();
