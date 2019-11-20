@@ -66,6 +66,7 @@ function moveBone(bone) {
         bone.remove();
     }
     if (yPosition >= 450) {
+        bone.style.top = `${800}px`
         bone.remove();
     } else {
         vel += acc;
