@@ -26,7 +26,7 @@ function moveLeft() {
     return
   } else {
     let position = parseInt(leftPosition)
-    position -= 15
+    position -= 20
     doggo.style.left = `${position}px`
   }
 }
@@ -38,7 +38,7 @@ function moveRight() {
     return
   } else {
     let position = parseInt(leftPosition)
-    position += 15
+    position += 20
     doggo.style.left = `${position}px`
   }
 }
@@ -62,11 +62,11 @@ function moveBone(bone) {
     let yPosition = parseInt(window.getComputedStyle(bone).getPropertyValue('top'))
     if (checkCollision(bone, doggo)) {
         scoreCounter.innerText = parseInt(scoreCounter.innerText) + 1;
-        bone.style.top = `${800}px`
+//        bone.style.top = `${800}px`
+//        bone.style.left = `${800}px`
         bone.remove();
     }
     if (yPosition >= 450) {
-        bone.style.top = `${800}px`
         bone.remove();
     } else {
         vel += acc;
@@ -86,6 +86,8 @@ function checkCollision(bone, doggo) {
     var doggoRight = doggoLeft + 80;
   if (boneTop < doggoBottom && boneBottom > doggoTop && boneLeft < doggoRight && boneRight > doggoLeft) {
       console.log("collision true");
+      bone.style.top = `${800}px`
+      bone.style.left = `${800}px`
       return true
   } else {
       console.log("collision false");
