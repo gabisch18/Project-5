@@ -2,7 +2,7 @@ const mainPlayArea = document.getElementById("main-play-area")
 const doggo = document.getElementById("player")
 const bones = ['images/bone.png', 'images/bone2.png', 'images/bone3.png']
 const scoreCounter = document.querySelector('#score span')
-const livesCounter = document.querySelector
+const livesCounter = document.querySelector('#lives span')
 
 let boneInterval
 playGame()
@@ -63,12 +63,13 @@ function moveBone(bone) {
     let yPosition = parseInt(window.getComputedStyle(bone).getPropertyValue('top'))
     if (checkCollision(bone, doggo)) {
         scoreCounter.innerText = parseInt(scoreCounter.innerText) + 1;
-<<<<<<< HEAD
 //        bone.style.top = `${800}px`
 //        bone.style.left = `${800}px`
         bone.remove();
     }
     if (yPosition >= 450) {
+        bone.style.top = `${800}px`
+        bone.style.left = `${800}px`
         bone.remove();
     }
     if (yPosition >= 450) {
