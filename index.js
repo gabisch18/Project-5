@@ -119,11 +119,13 @@ function moveRaindrop(raindrop) {
     var acc = 0.1;
   let moveRaindropInterval = setInterval(() => {
     let yPosition = parseInt(window.getComputedStyle(raindrop).getPropertyValue('top'))
-//    if (checkCollision(raindrop, doggo)) {
-//        scoreCounter.innerText = parseInt(scoreCounter.innerText) + 1;
-//        raindrop.remove();
-//    }
+    if (checkCollision(raindrop, doggo)) {
+        livesCounter.innerText = parseInt(scoreCounter.innerText) - 1;
+        raindrop.remove();
+    }
     if (yPosition >= 450) {
+        raindrop.style.top = `${800}px`
+        raindrop.style.left = `${800}px`
         raindrop.remove();
     } else {
         vel += acc;
