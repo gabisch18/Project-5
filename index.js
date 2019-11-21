@@ -1,10 +1,12 @@
 const mainPlayArea = document.getElementById("main-play-area")
 const doggo = document.getElementById("player")
 const bones = ['images/bone.png', 'images/bone2.png', 'images/bone3.png']
+const raindrops = ['images/raindrop.png', 'images/raindrop2.png', 'images/raindrop3.png']
 const scoreCounter = document.querySelector('#score span')
 const livesCounter = document.querySelector('#lives span')
 
 let boneInterval
+let raindropInterval
 playGame()
 
 function letDoggoMove(event) {
@@ -101,11 +103,41 @@ function checkCollision(bone, doggo) {
   }
 }
 
+function createRaindrop() {
+  let newRainDrop = document.createElement('img')
+  let raindropSpriteImg = raindrops[Math.floor(Math.random()*raindrops.length)]
+  newRainDrop.src = raindropSpriteImg
+  newRainDrop.classList.add('raindrop')
+  newRainDrop.style.top = '5px'
+  newRainDrop.style.left = `${Math.floor(Math.random() * 850)}px`
+  mainPlayArea.appendChild(newRainDrop)
+  moveRaindrop(newRainDrop)
+}
+
+function moveRaindrop(raindrop) {
+    var vel = 3;
+    var acc = 0.1;
+  let moveRaindropInterval = setInterval(() => {
+    let yPosition = parseInt(window.getComputedStyle(raindrop).getPropertyValue('top'))
+//    if (checkCollision(raindrop, doggo)) {
+//        scoreCounter.innerText = parseInt(scoreCounter.innerText) + 1;
+//        raindrop.remove();
+//    }
+    if (yPosition >= 450) {
+        raindrop.remove();
+    } else {
+        vel += acc;
+        raindrop.style.top = `${yPosition + vel}px`
+    }//check collision in here and keep score
+  }, 30)
+}
+
 //window.addEventListener("keydown", letDoggoMove)
 
 function playGame() {
   window.addEventListener("keydown", letDoggoMove)
   boneInterval = setInterval(() => { createBone() }, 2100)
+    raindropInterval = setInterval(() => { createRaindrop() }, 2100)
     doggo.style.left = `${405}px`
     doggo.style.top = `${400}px`
 }

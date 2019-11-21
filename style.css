@@ -30,3 +30,8 @@
        0 0 9px 9px #0ff;
 */
 }
+
+.raindrop {
+    width: 30px;
+    position: absolute;
+}
