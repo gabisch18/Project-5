@@ -123,6 +123,9 @@ function moveRaindrop(raindrop) {
         livesCounter.innerText = parseInt(livesCounter.innerText) - 1;
         raindrop.remove();
     }
+    if (parseInt(livesCounter.innerText) <= 0) {
+        gameOver()
+    }
     if (yPosition >= 450) {
         raindrop.style.top = `${800}px`
         raindrop.style.left = `${800}px`
@@ -132,6 +135,23 @@ function moveRaindrop(raindrop) {
         raindrop.style.top = `${yPosition + vel}px`
     }//check collision in here and keep score
   }, 30)
+}
+
+function gameOver() {
+    window.removeEventListener("keyDown", letDoggoMove)
+    clearInterval(boneInterval)
+    clearInterval(raindropInterval)
+    let bones = document.querySelectorAll(".bone")
+    bones.forEach(bone => bone.remove())
+    let raindrops = document.querySelectorAll(".raindrop")
+    raindrops.forEach(raindrop => raindrop.remove())
+    setTimeout(() => {
+        alert('Game Over! Your dog got bathed! Final Score: ' + parseInt(scoreCounter.innerText))
+//        startButton.style.display = "block"
+//        instructions.style.display = "block"
+        //Need start button to replay after GameOver
+        scoreCounter.innerText = 0
+    }, 1100)
 }
 
 //window.addEventListener("keydown", letDoggoMove)
