@@ -83,19 +83,21 @@ function moveBone(bone) {
   }, 30)
 }
 
-function checkCollision(bone, doggo) {
-  var boneLeft = parseInt(bone.style.left);
-    var boneRight = boneLeft + 50;
-  var boneTop = parseInt(bone.style.top);
-  var boneBottom = boneTop + 35;
+function checkCollision(item, doggo) {
+  var itemLeft = parseInt(item.style.left);
+    var itemWidth = item.clientWidth;
+    var itemRight = itemLeft + itemWidth;
+  var itemTop = parseInt(item.style.top);
+    var itemHeight = item.clientHeight;
+  var itemBottom = itemTop + itemHeight;
   var doggoTop = 400;
   var doggoBottom = 480;
   var doggoLeft = parseInt(doggo.style.left);
     var doggoRight = doggoLeft + 80;
-  if (boneTop < doggoBottom && boneBottom > doggoTop && boneLeft < doggoRight && boneRight > doggoLeft) {
+  if (itemTop < doggoBottom && itemBottom > doggoTop && itemLeft < doggoRight && itemRight > doggoLeft) {
       console.log("collision true");
-      bone.style.top = `${800}px`
-      bone.style.left = `${800}px`
+      item.style.top = `${800}px`
+      item.style.left = `${800}px`
       return true
   } else {
       console.log("collision false");
