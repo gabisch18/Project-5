@@ -158,8 +158,8 @@ function gameOver() {
 
 function playGame() {
   window.addEventListener("keydown", letDoggoMove)
-  boneInterval = setInterval(() => { createBone() }, 2100)
-    raindropInterval = setInterval(() => { createRaindrop() }, 2100)
+  boneInterval = setInterval(() => { createBone() }, 950)
+    raindropInterval = setInterval(() => { createRaindrop() }, 950)
     doggo.style.left = `${405}px`
     doggo.style.top = `${400}px`
 }
