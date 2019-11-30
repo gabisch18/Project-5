@@ -1,4 +1,5 @@
 const instructions = document.getElementById("instructions-text")
+const startButton = document.getElementById("start-button")
 const mainPlayArea = document.getElementById("main-play-area")
 const doggo = document.getElementById("player")
 const bones = ['images/bone.png', 'images/bone2.png', 'images/bone3.png']
