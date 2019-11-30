@@ -12,8 +12,10 @@
 
 #instructions-text {
   position: relative;
+    text-align: center;
+    font-size: 20px;
   color: white;
-  left: 35px;
+  left: 30px;
   top: 0px;
   text-shadow: 2px 2px black;
 }
