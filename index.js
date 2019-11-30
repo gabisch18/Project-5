@@ -152,11 +152,6 @@ function moveRaindrop(raindrop) {
   }, 30)
 }
 
-startButton.addEventListener("click", (event) => {
-    playGame()
-})
-window.addEventListener("keydown", letDoggoMove)
-
 function gameOver() {
     startButton.style.display = 'none'
     instructions.style.display = 'none'
@@ -175,8 +170,6 @@ function gameOver() {
         scoreCounter.innerText = 0
     }, 1100)
 }
-
-//window.addEventListener("keydown", letDoggoMove)
 
 function playGame() {
     instructions.style.display = 'none'
