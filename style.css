@@ -9,6 +9,15 @@
     width: 889px;
     height: 500px;
 }
+
+#instructions-text {
+  position: relative;
+  color: white;
+  left: 35px;
+  top: 0px;
+  text-shadow: 2px 2px black;
+}
+
 #player {
     width: 80px;
 /*    height: 80px;*/

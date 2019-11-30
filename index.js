@@ -1,3 +1,4 @@
+const instructions = document.getElementById("instructions-text")
 const mainPlayArea = document.getElementById("main-play-area")
 const doggo = document.getElementById("player")
 const bones = ['images/bone.png', 'images/bone2.png', 'images/bone3.png']
@@ -162,7 +163,7 @@ function gameOver() {
     setTimeout(() => {
         alert('Game Over! Your dog got bathed! Final Score: ' + parseInt(scoreCounter.innerText))
 //        startButton.style.display = "block"
-//        instructions.style.display = "block"
+        instructions.style.display = "block"
         //Need start button to replay after GameOver
         scoreCounter.innerText = 0
     }, 1100)
@@ -171,6 +172,7 @@ function gameOver() {
 //window.addEventListener("keydown", letDoggoMove)
 
 function playGame() {
+    instructions.style.display = 'none'
   window.addEventListener("keydown", letDoggoMove)
   boneInterval = setInterval(() => { createBone() }, 950)
     raindropInterval = setInterval(() => { createRaindrop() }, 950)
