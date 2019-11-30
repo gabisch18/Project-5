@@ -63,6 +63,12 @@ function moveBone(bone) {
     var acc = 0.1;
   let moveBoneInterval = setInterval(() => {
     let yPosition = parseInt(window.getComputedStyle(bone).getPropertyValue('top'))
+    if (parseInt(scoreCounter) > 20) {
+        vel +=1;
+    }
+    if (parseInt(scoreCounter) > 40) {
+        vel += 1;
+    }
     if (checkCollision(bone, doggo)) {
         scoreCounter.innerText = parseInt(scoreCounter.innerText) + 1;
 //        bone.style.top = `${800}px`
@@ -121,6 +127,12 @@ function moveRaindrop(raindrop) {
     var acc = 0.1;
   let moveRaindropInterval = setInterval(() => {
     let yPosition = parseInt(window.getComputedStyle(raindrop).getPropertyValue('top'))
+    if (parseInt(scoreCounter) > 20) {
+        vel +=1;
+    }
+    if (parseInt(scoreCounter) > 40) {
+        vel += 1;
+    }
     if (checkCollision(raindrop, doggo)) {
         livesCounter.innerText = parseInt(livesCounter.innerText) - 1;
         raindrop.remove();
