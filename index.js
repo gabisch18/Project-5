@@ -9,17 +9,16 @@ const livesCounter = document.querySelector('#lives span')
 
 let boneInterval
 let raindropInterval
-//playGame()
+startGame()
 function startGame() {
-    startButton.addEventListener("click", (event) => {
-        playGame()
-    })
+    startButton.addEventListener("click", playGame)
     doggo.style.left = `${405}px`
     doggo.style.top = `${400}px`
         startButton.style.display = "block"
         instructions.style.display = "block"
         scoreCounter.innerText = 0
         livesCounter.innerText = 3
+    startButton.clear
 }
 
 function letDoggoMove(event) {
@@ -181,7 +180,6 @@ function gameOver() {
 //        instructions.style.display = "block"
 //        scoreCounter.innerText = 0
 //        livesCounter.innerText = 3
-//        playGame()
         startGame()
     //}, 1100)
 }
@@ -189,10 +187,10 @@ function gameOver() {
 //window.addEventListener("keydown", letDoggoMove)
 
 function playGame() {
+    startButton.removeEventListener("click", playGame)
     startButton.style.display = 'none'
     instructions.style.display = 'none'
   window.addEventListener("keydown", letDoggoMove)
   boneInterval = setInterval(() => { createBone() }, 950)
     raindropInterval = setInterval(() => { createRaindrop() }, 950)
 }
-startGame();
