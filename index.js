@@ -10,9 +10,17 @@ const livesCounter = document.querySelector('#lives span')
 let boneInterval
 let raindropInterval
 //playGame()
-startButton.addEventListener("click", (event) => {
-    playGame()
-})
+function startGame() {
+    startButton.addEventListener("click", (event) => {
+        playGame()
+    })
+    doggo.style.left = `${405}px`
+    doggo.style.top = `${400}px`
+        startButton.style.display = "block"
+        instructions.style.display = "block"
+        scoreCounter.innerText = 0
+        livesCounter.innerText = 3
+}
 
 function letDoggoMove(event) {
   if (event.key === "ArrowLeft") {
@@ -157,6 +165,9 @@ function moveRaindrop(raindrop) {
 }
 
 function gameOver() {
+    
+    //setTimeout(() => {
+        alert('Game Over! Your dog got bathed! Final Score: ' + parseInt(scoreCounter.innerText))
     window.removeEventListener("keyDown", letDoggoMove)
     clearInterval(boneInterval)
     clearInterval(raindropInterval)
@@ -164,15 +175,15 @@ function gameOver() {
     bones.forEach(bone => bone.remove())
     let raindrops = document.querySelectorAll(".raindrop")
     raindrops.forEach(raindrop => raindrop.remove())
-    setTimeout(() => {
-        alert('Game Over! Your dog got bathed! Final Score: ' + parseInt(scoreCounter.innerText))
-        doggo.style.left = `${405}px`
-    doggo.style.top = `${400}px`
-        startButton.style.display = "block"
-        instructions.style.display = "block"
-        scoreCounter.innerText = 0
+//        doggo.style.left = `${405}px`
+//    doggo.style.top = `${400}px`
+//        startButton.style.display = "block"
+//        instructions.style.display = "block"
+//        scoreCounter.innerText = 0
 //        livesCounter.innerText = 3
-    }, 1100)
+//        playGame()
+        startGame()
+    //}, 1100)
 }
 
 //window.addEventListener("keydown", letDoggoMove)
@@ -184,3 +195,4 @@ function playGame() {
   boneInterval = setInterval(() => { createBone() }, 950)
     raindropInterval = setInterval(() => { createRaindrop() }, 950)
 }
+startGame();
