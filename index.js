@@ -8,7 +8,7 @@ const livesCounter = document.querySelector('#lives span')
 
 let boneInterval
 let raindropInterval
-playGame()
+//playGame()
 
 function letDoggoMove(event) {
   if (event.key === "ArrowLeft") {
@@ -152,7 +152,14 @@ function moveRaindrop(raindrop) {
   }, 30)
 }
 
+startButton.addEventListener("click", (event) => {
+    playGame()
+})
+window.addEventListener("keydown", letDoggoMove)
+
 function gameOver() {
+    startButton.style.display = 'none'
+    instructions.style.display = 'none'
     window.removeEventListener("keyDown", letDoggoMove)
     clearInterval(boneInterval)
     clearInterval(raindropInterval)
