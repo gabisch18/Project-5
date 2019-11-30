@@ -171,6 +171,11 @@ function gameOver() {
     }, 1100)
 }
 
+startButton.addEventListener("click", (event) => {
+    playGame()
+})
+window.addEventListener("keydown", letDoggoMove)
+
 function playGame() {
     instructions.style.display = 'none'
   window.addEventListener("keydown", letDoggoMove)
