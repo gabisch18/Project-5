@@ -178,6 +178,7 @@ startButton.addEventListener("click", (event) => {
 window.addEventListener("keydown", letDoggoMove)
 
 function playGame() {
+    startButton.style.display = 'none'
     instructions.style.display = 'none'
   window.addEventListener("keydown", letDoggoMove)
   boneInterval = setInterval(() => { createBone() }, 950)
