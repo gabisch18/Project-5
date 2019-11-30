@@ -1,5 +1,5 @@
-const instructions = document.getElementById("instructions-text")
 const startButton = document.getElementById("start-button")
+const instructions = document.getElementById("instructions-text")
 const mainPlayArea = document.getElementById("main-play-area")
 const doggo = document.getElementById("player")
 const bones = ['images/bone.png', 'images/bone2.png', 'images/bone3.png']
@@ -10,6 +10,9 @@ const livesCounter = document.querySelector('#lives span')
 let boneInterval
 let raindropInterval
 //playGame()
+startButton.addEventListener("click", (event) => {
+    playGame()
+})
 
 function letDoggoMove(event) {
   if (event.key === "ArrowLeft") {
@@ -154,8 +157,6 @@ function moveRaindrop(raindrop) {
 }
 
 function gameOver() {
-    startButton.style.display = 'none'
-    instructions.style.display = 'none'
     window.removeEventListener("keyDown", letDoggoMove)
     clearInterval(boneInterval)
     clearInterval(raindropInterval)
@@ -165,17 +166,16 @@ function gameOver() {
     raindrops.forEach(raindrop => raindrop.remove())
     setTimeout(() => {
         alert('Game Over! Your dog got bathed! Final Score: ' + parseInt(scoreCounter.innerText))
-//        startButton.style.display = "block"
+        doggo.style.left = `${405}px`
+    doggo.style.top = `${400}px`
+        startButton.style.display = "block"
         instructions.style.display = "block"
-        //Need start button to replay after GameOver
         scoreCounter.innerText = 0
+//        livesCounter.innerText = 3
     }, 1100)
 }
 
-startButton.addEventListener("click", (event) => {
-    playGame()
-})
-window.addEventListener("keydown", letDoggoMove)
+//window.addEventListener("keydown", letDoggoMove)
 
 function playGame() {
     startButton.style.display = 'none'
@@ -183,6 +183,4 @@ function playGame() {
   window.addEventListener("keydown", letDoggoMove)
   boneInterval = setInterval(() => { createBone() }, 950)
     raindropInterval = setInterval(() => { createRaindrop() }, 950)
-    doggo.style.left = `${405}px`
-    doggo.style.top = `${400}px`
 }
